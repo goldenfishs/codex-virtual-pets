@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a transparent Codex v2 sprite atlas from the approved master mascot."""
+"""Build a transparent Codex v2 sprite atlas from the approved whale-maid art."""
 
 from __future__ import annotations
 
@@ -96,7 +96,7 @@ def frame(
 
 
 def direction_frame(base: Image.Image, degree: float) -> Image.Image:
-    # Horizontal squash indicates sideways attention while preserving the mascot identity.
+    # Horizontal squash indicates sideways attention while preserving character identity.
     radians = math.radians(degree)
     sideways = abs(math.sin(radians))
     vertical = math.cos(radians)

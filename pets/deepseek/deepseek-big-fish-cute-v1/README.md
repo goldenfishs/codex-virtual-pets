@@ -2,7 +2,7 @@
 
 ![角色预览](preview.png)
 
-一只原创的蓝青小河豚桌面宠物：圆滚滚、爱发呆，适合作为安静的编码陪伴。它借鉴了“大肥鱼”这一社区称呼的圆润和轻松氛围，但没有复刻相关鲸鱼娘、女仆形象、发型、服装、标志或现成角色。
+蓝发、白色头饰、深蓝白女仆裙和鲸鱼尾巴组成的 Q 版桌面宠物。她会轻轻浮动、眨眼、挥手和摆尾，适合作为活泼的编码陪伴。
 
 ## 安装到 Codex
 
@@ -32,6 +32,6 @@ cp -R pets/deepseek/deepseek-big-fish-cute-v1 ~/.codex/pets/deepseek-big-fish-cu
 
 ## 创作与许可
 
-角色是原创、非人形的小河豚，采用靛蓝、青绿和奶油色；其主视觉以 `gpt-image-2.5-sunburst` 生成后，再由本目录 `build/build_spritesheet.py` 编排为动画帧。成品图集已通过 Codex v2 尺寸、透明通道、帧位和透明像素残留校验。
+角色主视觉以 `gpt-image-2.5-sunburst` 生成后，再由本目录 `build/build_spritesheet.py` 编排为动画帧。成品图集已通过 Codex v2 尺寸、透明通道、帧位和透明像素残留校验。
 
 本宠物是独立的非官方社区创作，与 DeepSeek 无隶属或合作关系。素材与代码以仓库的 [MIT License](../../../LICENSE) 发布。

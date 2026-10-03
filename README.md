@@ -6,7 +6,7 @@
 
 | 分类 | 版本 | 预览 | 说明 |
 | --- | --- | --- | --- |
-| [DeepSeek（社区创作，非官方）](pets/deepseek/) | [大肥鱼（可爱版）v1](pets/deepseek/deepseek-big-fish-cute-v1/) | ![大肥鱼（可爱版）v1](pets/deepseek/deepseek-big-fish-cute-v1/preview.png) | 原创蓝青小河豚，带完整动画与鼠标注视方向。 |
+| [DeepSeek（社区创作，非官方）](pets/deepseek/) | [大肥鱼（可爱版）v1](pets/deepseek/deepseek-big-fish-cute-v1/) | ![大肥鱼（可爱版）v1](pets/deepseek/deepseek-big-fish-cute-v1/preview.png) | 蓝发女仆鲸鱼娘，带完整动画与鼠标注视方向。 |
 
 ## 安装
 
