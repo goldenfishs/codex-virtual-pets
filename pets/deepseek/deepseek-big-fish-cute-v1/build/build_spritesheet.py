@@ -6,12 +6,15 @@ from __future__ import annotations
 import math
 from pathlib import Path
 
-from PIL import Image, ImageChops, ImageEnhance, ImageFilter, ImageOps
+from PIL import Image, ImageDraw, ImageEnhance, ImageOps
 
 CELL_W, CELL_H = 192, 208
 COLS, ROWS = 8, 11
 ROOT = Path(__file__).resolve().parent
 SOURCE = ROOT / "source.png"
+POSES = ROOT / "poses"
+THINKING = POSES / "thinking.png"
+EUREKA = POSES / "eureka.png"
 OUT = ROOT / "spritesheet.png"
 
 
@@ -30,10 +33,14 @@ def clean_transparent_rgb(image: Image.Image) -> Image.Image:
     return rgba
 
 
-def make_base() -> Image.Image:
-    source = trim(Image.open(SOURCE).convert("RGBA"))
+def make_sprite(path: Path) -> Image.Image:
+    source = trim(Image.open(path).convert("RGBA"))
     source.thumbnail((166, 166), Image.Resampling.LANCZOS)
     return clean_transparent_rgb(source)
+
+
+def make_base() -> Image.Image:
+    return make_sprite(SOURCE)
 
 
 def transform_sprite(
@@ -68,6 +75,7 @@ def frame(
     brightness: float = 1.0,
     blink: bool = False,
     sleepy: bool = False,
+    thought_bubbles: bool = False,
 ) -> Image.Image:
     sprite = transform_sprite(
         base,
@@ -91,6 +99,20 @@ def frame(
                 cell,
                 Image.new("RGBA", (eye_w, eye_h), (10, 24, 66, 230)),
                 (center_x - eye_w // 2, eye_y),
+            )
+    if thought_bubbles:
+        draw = ImageDraw.Draw(cell)
+        for center_x, center_y, radius in ((54, 31, 3), (64, 23, 5), (80, 14, 9)):
+            draw.ellipse(
+                (
+                    center_x - radius,
+                    center_y - radius,
+                    center_x + radius,
+                    center_y + radius,
+                ),
+                fill=(236, 250, 255, 255),
+                outline=(23, 71, 146, 255),
+                width=2,
             )
     return clean_transparent_rgb(cell)
 
@@ -124,6 +146,8 @@ def paste(atlas: Image.Image, row: int, col: int, cell: Image.Image) -> None:
 
 def main() -> None:
     base = make_base()
+    thinking = make_sprite(THINKING)
+    eureka = make_sprite(EUREKA)
     atlas = Image.new("RGBA", (CELL_W * COLS, CELL_H * ROWS), (0, 0, 0, 0))
 
     idle = [
@@ -200,16 +224,17 @@ def main() -> None:
     for col, options in enumerate(waiting):
         paste(atlas, 6, col, frame(base, **options))
 
+    # A readable thinking loop: settle, ponder, consider, form a thought, then eureka.
     working = [
-        dict(dy=1, angle=2, scale_y=.98),
-        dict(dy=0, angle=-2, scale_y=1.00),
-        dict(dy=1, angle=2, scale_y=.98),
-        dict(dy=0, angle=-2, scale_y=1.00),
-        dict(dy=1, angle=2, scale_y=.98),
-        dict(dy=0, angle=-2, scale_y=1.00),
+        (base, dict(dy=2)),
+        (thinking, dict(dx=-2, dy=7)),
+        (thinking, dict(dx=1, dy=8, blink=True)),
+        (thinking, dict(dx=1, dy=12, thought_bubbles=True)),
+        (eureka, dict(dx=0, dy=8)),
+        (base, dict(dy=2)),
     ]
-    for col, options in enumerate(working):
-        paste(atlas, 7, col, frame(base, **options))
+    for col, (sprite, options) in enumerate(working):
+        paste(atlas, 7, col, frame(sprite, **options))
 
     review = [
         dict(dx=0, dy=0),
