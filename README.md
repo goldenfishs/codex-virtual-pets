@@ -6,7 +6,18 @@
 
 | 分类 | 版本 | 预览 | 说明 |
 | --- | --- | --- | --- |
-| [DeepSeek（社区创作，非官方）](pets/deepseek/) | [大肥鱼（可爱版）v1](pets/deepseek/deepseek-big-fish-cute-v1/) | ![大肥鱼（可爱版）v1](pets/deepseek/deepseek-big-fish-cute-v1/preview.png) | 缩略图优先的蓝发女仆鲸鱼娘，带清晰动作与鼠标注视方向。 |
+| [DeepSeek](pets/deepseek/) | [大肥鱼（可爱版）v1](pets/deepseek/deepseek-big-fish-cute-v1/) | <img src="pets/deepseek/deepseek-big-fish-cute-v1/preview.png" width="128" alt="DeepSeek 鲸鱼娘"> | 长卷蓝发女仆鲸鱼娘，托腮思考、举指灵光一现。 |
+| [OpenAI](pets/openai/) | [绿芽助手 v1](pets/openai/openai-cute-v1/) | <img src="pets/openai/openai-cute-v1/preview.png" width="128" alt="OpenAI 绿芽助手"> | 薄荷绿与白色的小机器人，叶片天线、圆脸和漂浮小脚。 |
+| [Claude](pets/claude/) | [Coral Scribe 珊瑚书灵 v1](pets/claude/claude-cute-v1/) | <img src="pets/claude/claude-cute-v1/preview.png" width="128" alt="Claude 珊瑚书灵"> | 暖珊瑚色小狐狸，披着书页斗篷，抱书思考、提笔写作。 |
+| [Grok](pets/grok/) | [宇宙小坏蛋 v1](pets/grok/grok-cute-v1/) | <img src="pets/grok/grok-cute-v1/preview.png" width="128" alt="Grok 宇宙小坏蛋"> | 深灰色宇宙小兽，霓虹青眼睛、发光耳尖和彗星尾巴。 |
+
+各角色均为非官方社区创作。进入版本目录可以查看大图、动作预览与安装说明。
+
+### 新增角色的工作动作
+
+![OpenAI、Claude、Grok 的实际尺寸工作动画](assets/ai-companions-working.gif)
+
+预览直接取自可安装图集，每个角色按 `192×208` 原尺寸和工作状态时长播放。
 
 ## 安装
 
@@ -15,8 +26,8 @@
 3. 将该目录整体复制到 `~/.codex/pets/<宠物 id>/`。例如：
 
    ```bash
-   mkdir -p ~/.codex/pets
-   cp -R pets/deepseek/deepseek-big-fish-cute-v1 ~/.codex/pets/deepseek-big-fish-cute-v1
+   mkdir -p ~/.codex/pets/deepseek-big-fish-cute-v1
+   cp -R pets/deepseek/deepseek-big-fish-cute-v1/. ~/.codex/pets/deepseek-big-fish-cute-v1/
    ```
 
 4. 在 Codex 的“设置 → Mini 与虚拟宠物”中选择该宠物；必要时重启 Codex。
@@ -40,8 +51,8 @@ pets/
 
 新增宠物请新建 `pets/<category>/<pet-version>/`，不要覆盖已有版本。每个提交应包含可预览的 `preview.png`、可安装的 `pet.json` 和 `spritesheet.webp`，并确保精灵表是透明背景、尺寸正确、动作帧完整。
 
-请只提交拥有使用权的原创素材，不要提交第三方角色、商标标志或未经授权的图片。分类名称仅用于检索与社区创作描述，不代表官方合作或认可。
+请只提交拥有使用权的原创素材，不要提交第三方角色、商标标志或未经授权的图片。分类名称仅用于检索与社区创作描述，不代表官方合作或认可。OpenAI、Claude、Grok、DeepSeek 等名称与相关商标归其各自权利人所有。
 
 ## License
 
-仓库内容采用 [MIT License](LICENSE)。DeepSeek 是其权利人的商标；本仓库是独立的非官方社区创作，与 DeepSeek 没有隶属或合作关系。
+仓库内容采用 [MIT License](LICENSE)。本仓库是独立的非官方社区创作，与 OpenAI、Anthropic、xAI 或 DeepSeek 没有隶属或合作关系。

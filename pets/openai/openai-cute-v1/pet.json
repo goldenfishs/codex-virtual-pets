@@ -1,0 +1,7 @@
+{
+  "id": "openai-cute-v1",
+  "displayName": "OpenAI 绿芽助手（可爱版）",
+  "description": "一只原创的薄荷绿 AI 小助手，会托脸思考、举起食指，并在灵感出现时亮起小星星。",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}
